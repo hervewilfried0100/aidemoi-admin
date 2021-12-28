@@ -1,0 +1,108 @@
+<div class="tw-w-full">
+  <div class="tw-flex tw-flex-col tw-space-y-4">
+    <div class="tw-flex tw-flex-row tw-space-x-4">
+      <!--Debut:: Villes table -->
+      <div class="tw-w-1/2">
+        <nz-card>
+          <div class="d-flex justify-content-between align-items-center">
+            <h5 class="tw-font-semibold tw-text-xl tw-text-gray-500">Villes</h5>
+            <div>
+              <am-button label="Ajouter ville" (click)="ouvrirVilleModal()"></am-button>
+            </div>
+          </div>
+          <div class="m-t-30">
+            <nz-table #villeListTable nzSize="small" nzPageSize="5"
+                      [nzData]="villeData$ | async"  class="no-border-last">
+              <thead>
+              <tr>
+                <th>Nom</th>
+                <th>Actions</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let item of villeListTable.data">
+                <td>{{item?.label}}</td>
+                <td>
+                  <app-tab-col-actions (deleteEmit)="supprimerVille(item)" (updateEmit)="modifierVille(item)">
+                  </app-tab-col-actions>
+                </td>
+              </tr>
+              </tbody>
+            </nz-table>
+          </div>
+        </nz-card>
+      </div>
+      <!--Fin:: Villes table -->
+
+      <!--Debut:: Commune table -->
+      <div class="tw-w-1/2">
+        <nz-card>
+          <div class="d-flex justify-content-between align-items-center">
+            <h5 class="tw-font-semibold tw-text-xl tw-text-gray-500">Communes</h5>
+            <div>
+              <am-button label="Ajouter commune" (click)="ouvrirCommuneModal()"></am-button>
+            </div>
+          </div>
+          <div class="m-t-30">
+            <nz-table #communeListTable [nzData]="communeData$ | async" nzPageSize="5"
+                      nzSize="small" class="no-border-last">
+              <thead>
+              <tr>
+                <th>Nom</th>
+                <th>Ville</th>
+                <th>Actions</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let item of communeListTable.data">
+                <td>{{item?.label}}</td>
+                <td>{{item?.ville?.label}}</td>
+                <td>
+                  <app-tab-col-actions (deleteEmit)="supprimerCommune(item)" (updateEmit)="modifierCommune(item)">
+                  </app-tab-col-actions>
+                </td>
+              </tr>
+              </tbody>
+            </nz-table>
+          </div>
+        </nz-card>
+      </div>
+      <!--Fin:: Communes table -->
+    </div>
+
+    <!--Debut:: Quartiers table -->
+    <div class="tw-w-full">
+      <nz-card>
+        <div class="d-flex justify-content-between align-items-center">
+          <h5 class="tw-font-semibold tw-text-xl tw-text-gray-500">Quartiers</h5>
+          <div>
+            <am-button label="Ajouter quartier" (click)="ouvrirQuartierModal()"></am-button>
+          </div>
+        </div>
+        <div class="m-t-30">
+          <nz-table #quartierListTable nzSize="small" nzPageSize="5"
+                    [nzData]="quartierData$ | async" class="no-border-last">
+            <thead>
+            <tr>
+              <th>Nom</th>
+              <th>Commune</th>
+              <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let item of quartierListTable.data">
+              <td>{{item.label}}</td>
+              <td>{{item?.commune?.label}}</td>
+              <td>
+                <app-tab-col-actions (deleteEmit)="supprimerQuartier(item)" (updateEmit)="modifierQuartier(item)">
+                </app-tab-col-actions>
+              </td>
+            </tr>
+            </tbody>
+          </nz-table>
+        </div>
+      </nz-card>
+    </div>
+    <!--Fin:: Quartiers table -->
+  </div>
+</div>

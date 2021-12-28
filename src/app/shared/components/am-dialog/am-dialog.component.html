@@ -1,0 +1,13 @@
+<div class="tw-w-full bg-white">
+  <h2 mat-dialog-title>{{title}}</h2>
+  <mat-dialog-content>
+    <ng-content></ng-content>
+  </mat-dialog-content>
+
+  <mat-dialog-actions align="end">
+    <div class="tw-flex tw-flex-row tw-space-x-4">
+      <am-button label="Annuler" type="default" matDialogClose> </am-button>
+      <am-button label="Enregistrer" type="primary" (clickEvent)="saveEmit()"></am-button>
+    </div>
+  </mat-dialog-actions>
+</div>

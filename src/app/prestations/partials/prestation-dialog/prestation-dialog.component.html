@@ -1,0 +1,12 @@
+<app-am-dialog title="Ajouter une prestation" (onSave)="enregistrer()">
+  <div class="tw-w-full">
+    <form nz-form nzLayout="vertical" [formGroup]="prestationForm">
+      <nz-form-item>
+        <nz-form-label>Label</nz-form-label>
+        <nz-form-control >
+          <input type="text" nz-input placeholder="Entrez le nom de la ville" formControlName="label">
+        </nz-form-control>
+      </nz-form-item>
+    </form>
+  </div>
+</app-am-dialog>

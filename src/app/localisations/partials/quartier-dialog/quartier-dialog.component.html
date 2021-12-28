@@ -1,0 +1,21 @@
+<app-am-dialog title="Ajouter une commune" (onSave)="enregistrer()">
+  <div class="tw-w-full">
+    <form nz-form nzLayout="vertical" [formGroup]="quartierForm">
+      <nz-form-item>
+        <nz-form-label>Label</nz-form-label>
+        <nz-form-control >
+          <input type="text" nz-input placeholder="Entrez le nom du quartier" formControlName="label">
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label>Commune</nz-form-label>
+        <nz-form-control >
+          <nz-select nzPlaceHolder="Selectionnez la commune du quartier"
+                     formControlName="commune" [nzOptions]="communeOptions | async">
+          </nz-select>
+        </nz-form-control>
+      </nz-form-item>
+    </form>
+  </div>
+</app-am-dialog>

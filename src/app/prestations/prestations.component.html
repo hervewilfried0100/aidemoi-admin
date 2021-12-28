@@ -1,0 +1,29 @@
+<div class="tw-w-full">
+  <nz-card>
+    <div class="d-flex justify-content-between align-items-center">
+      <h5 class="tw-font-semibold tw-text-xl tw-text-gray-500">Prestations</h5>
+      <div>
+        <am-button label="Ajouter prestation" (clickEvent)="ouvrirPrestationDialog()"></am-button>
+      </div>
+    </div>
+    <div class="m-t-30">
+      <nz-table #prestationListTable nzSize="small"
+                [nzData]="prestations$ | async" class="no-border-last">
+        <thead>
+        <tr>
+          <th>Label</th>
+          <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let item of prestationListTable.data">
+          <td>{{item?.label}}</td>
+          <td>
+            <app-tab-col-actions (deleteEmit)="supprimerPrestation(item)" (updateEmit)="modifierPrestation(item)">
+            </app-tab-col-actions>
+          </td>
+        </tbody>
+      </nz-table>
+    </div>
+  </nz-card>
+</div>

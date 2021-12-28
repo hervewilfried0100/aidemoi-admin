@@ -1,0 +1,55 @@
+<div class="tw-w-full">
+  <nz-card>
+    <div class="d-flex justify-content-between align-items-center">
+      <h5 class="tw-font-semibold tw-text-xl tw-text-gray-500">Prestataires</h5>
+      <div>
+        <am-button label="Ajouter prestataire" (click)="ouvrirPrestataireDialog()"></am-button>
+      </div>
+    </div>
+    <div class="m-t-30">
+      <nz-table #localisationListTable nzSize="small"
+                [nzData]="prestataires$ | async" class="no-border-last">
+        <thead>
+        <tr>
+          <th>Nom</th>
+          <th>Prénoms</th>
+          <th>Genre</th>
+          <th>Téléphone</th>
+          <th>Ville</th>
+          <th>Commune</th>
+          <th>Quartier</th>
+          <th>A payer</th>
+          <th>Prestation</th>
+          <th>Date de création</th>
+          <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let item of localisationListTable.data">
+          <td>{{item?.nom}}</td>
+          <td>{{item?.prenoms}}</td>
+          <td>{{item?.genre}}</td>
+          <td>{{item?.telephone}}</td>
+          <td>{{item?.ville}}</td>
+          <td>{{item?.commune}}</td>
+          <td>{{item?.quartier}}</td>
+          <td>
+            <ng-container *ngIf="item?.aPayer">
+              Oui
+            </ng-container>
+            <ng-container *ngIf="!item?.aPayer">
+              Non
+            </ng-container>
+          </td>
+          <td>{{item?.prestation}}</td>
+          <td>{{item?.dateCreation | date : 'mediumDate'}}</td>
+          <td>
+            <app-tab-col-actions (deleteEmit)="supprimerPrestataire(item)">
+            </app-tab-col-actions>
+          </td>
+        </tr>
+        </tbody>
+      </nz-table>
+    </div>
+  </nz-card>
+</div>
