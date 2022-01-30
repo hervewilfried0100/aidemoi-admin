@@ -22,6 +22,7 @@ import {TabColActionsComponent} from './components/tab-col-actions/tab-col-actio
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {NzNotificationService} from 'ng-zorro-antd/notification';
+import {NzAvatarModule} from 'ng-zorro-antd/avatar';
 
 @NgModule({
     exports: [
@@ -64,7 +65,9 @@ import {NzNotificationService} from 'ng-zorro-antd/notification';
       MatMenuModule,
       MatIconModule,
       MatButtonModule,
-      ReactiveFormsModule
+      ReactiveFormsModule,
+      NzAvatarModule,
+      NzIconModule
     ],
     declarations: [
       SearchPipe,

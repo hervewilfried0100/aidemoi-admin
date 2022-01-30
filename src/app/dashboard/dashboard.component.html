@@ -1,1 +1,54 @@
-<p>Tableau de bord</p>
+<div class="row">
+  <div class="col-md-6 col-lg-3">
+    <nz-card>
+      <div class="d-flex justify-content-between align-items-center">
+        <div>
+          <p class="m-b-0">Nombre total de prestataire</p>
+          <h2 class="m-b-0">
+            <span>{{totalPrestataire | async}}</span>
+          </h2>
+        </div>
+        <nz-avatar [nzSize]="50" nzIcon="user" class="ant-avatar-blue"></nz-avatar>
+      </div>
+    </nz-card>
+  </div>
+  <div class="col-md-6 col-lg-3">
+    <nz-card>
+      <div class="d-flex justify-content-between align-items-center">
+        <div>
+          <p class="m-b-0">Nombre de prestaires abonnés</p>
+          <h2 class="m-b-0">
+            <span>{{totalPrestatairePayer | async}}</span>
+          </h2>
+        </div>
+        <nz-avatar [nzSize]="50" nzIcon="bar-chart" class="ant-avatar-cyan"></nz-avatar>
+      </div>
+    </nz-card>
+  </div>
+  <div class="col-md-6 col-lg-3">
+    <nz-card>
+      <div class="d-flex justify-content-between align-items-center">
+        <div>
+          <p class="m-b-0">Total prestataire non abonnés</p>
+          <h2 class="m-b-0">
+            <span>{{totalPrestataireNonPayer | async}}</span>
+          </h2>
+        </div>
+        <nz-avatar [nzSize]="50" nzIcon="bar-chart" class="ant-avatar-red"></nz-avatar>
+      </div>
+    </nz-card>
+  </div>
+  <div class="col-md-6 col-lg-3">
+    <nz-card>
+      <div class="d-flex justify-content-between align-items-center">
+        <div>
+          <p class="m-b-0">Total prestations</p>
+          <h2 class="m-b-0">
+            <span>{{totalPrestation | async }}</span>
+          </h2>
+        </div>
+        <nz-avatar [nzSize]="50" nzIcon="bar-chart" class="ant-avatar-gold"></nz-avatar>
+      </div>
+    </nz-card>
+  </div>
+</div>

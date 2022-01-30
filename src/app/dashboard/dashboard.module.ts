@@ -5,6 +5,7 @@ import { DashboardComponent } from './dashboard.component';
 
 /** Import any ng-zorro components as the module required except icon module */
 import { NzButtonModule } from 'ng-zorro-antd/button';
+import {NzAvatarModule} from 'ng-zorro-antd/avatar';
 
 /** Assign all ng-zorro modules to this array*/
 const antdModule = [
@@ -15,7 +16,8 @@ const antdModule = [
     imports: [
         SharedModule,
         DashboardRoutingModule,
-        ...antdModule
+        ...antdModule,
+        NzAvatarModule
     ],
     exports: [],
     declarations: [
