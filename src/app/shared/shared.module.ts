@@ -23,6 +23,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {NzNotificationService} from 'ng-zorro-antd/notification';
 import {NzAvatarModule} from 'ng-zorro-antd/avatar';
+import {NzUploadModule} from 'ng-zorro-antd/upload';
 
 @NgModule({
     exports: [
@@ -47,7 +48,8 @@ import {NzAvatarModule} from 'ng-zorro-antd/avatar';
       MatMenuModule,
       MatIconModule,
       MatButtonModule,
-      ReactiveFormsModule
+      ReactiveFormsModule,
+      NzUploadModule
     ],
     imports: [
       RouterModule,
@@ -67,7 +69,8 @@ import {NzAvatarModule} from 'ng-zorro-antd/avatar';
       MatButtonModule,
       ReactiveFormsModule,
       NzAvatarModule,
-      NzIconModule
+      NzIconModule,
+      NzUploadModule
     ],
     declarations: [
       SearchPipe,

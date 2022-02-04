@@ -1,10 +1,22 @@
-<app-am-dialog title="Ajouter une prestation" (onSave)="enregistrer()">
+<app-am-dialog title="Ajouter une prestation" (onSave)="handleUpload()">
   <div class="tw-w-full">
     <form nz-form nzLayout="vertical" [formGroup]="prestationForm">
       <nz-form-item>
         <nz-form-label>Label</nz-form-label>
         <nz-form-control >
           <input type="text" nz-input placeholder="Entrez le nom de la ville" formControlName="label">
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-control>
+<!--          <input type="file" (change)="uploadFile($event)">-->
+          <nz-upload [(nzFileList)]="fileList" [nzBeforeUpload]="beforeUpload">
+            <button nz-button>
+              <i nz-icon nzType="upload"></i>
+              Selectionnez l'image de la prestation
+            </button>
+          </nz-upload>
         </nz-form-control>
       </nz-form-item>
     </form>

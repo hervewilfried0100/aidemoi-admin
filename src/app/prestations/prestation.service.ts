@@ -16,7 +16,7 @@ export class PrestationService {
   private prestations$ = new BehaviorSubject<PrestationDetailsDto[]>([]);
   public readonly prestations = this.prestations$.asObservable();
 
-  creerPrestation(createPrestationDto: CreatePrestationDto): void {
+  creerPrestation(createPrestationDto: any): void {
     this.prestationRepository.createPrestation(createPrestationDto)
       .then(() => this.recupererPrestations())
       .then(() => this.messageHandler.handleSuccess(MessageConstants.SAVE_SUCCESS))

@@ -12,7 +12,8 @@ export class PrestationRepository {
 
   constructor(private httpClient: HttpClient) {}
 
-  createPrestation(createPrestationDto: CreatePrestationDto): Promise<void> {
+  createPrestation(createPrestationDto: any): Promise<void> {
+    console.log('Creation prestation', createPrestationDto);
     return this.httpClient.post(this.PRESTATION_URL, createPrestationDto)
       .pipe(map((item: any) => {
         if (item.body) {
